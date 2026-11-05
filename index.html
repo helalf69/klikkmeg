@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>klikk meg ;-)</title>
+    <link rel="stylesheet" href="klikkmeg.css">
+    <link rel="icon" type="image/x-icon" href="/media/wink.png">
+    <script>
+        function jump() {
+            let knapp = document.querySelector("#knapp"); /* variabel type object */
+            let xx = Math.floor(Math.random() * Math.max(0, window.innerWidth - knapp.offsetWidth)); /* variabel type heltall/integer */
+            let yy = Math.floor(Math.random() * Math.max(0, window.innerHeight - knapp.offsetHeight));
+            knapp.style.top = yy + "px";
+            knapp.style.left = xx + "px";
+            knapp.getAnimations().forEach(animation => animation.cancel());
+            knapp.animate(
+                [{ backgroundColor: "#fff9e8" }, { backgroundColor: "var(--acc)" }],
+                { duration: 750, fill: "forwards" }
+            );
+        }
+    </script>
+</head>
+<body>
+    <div>
+        <h1 style="border: 0px;">Klikk meg ;-)</h1>
+        Klikk den gule knappen under ;-)
+    </div>
+    <button class="knapp" onmouseover="jump()" id="knapp" style="background-color: var(--acc);">Klikk meg ;-)</button>
+</body>
+</html>
