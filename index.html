@@ -8,12 +8,18 @@
     <link rel="icon" type="image/x-icon" href="/media/wink.png">
     <script>
         function jump() {
-            let knapp = document.querySelector("#knapp"); /* variabel type object */
-            let xx = Math.floor(Math.random() * Math.max(0, window.innerWidth - knapp.offsetWidth)); /* variabel type heltall/integer */
+            let knapp = document.querySelector("#knapp"); 
+            /* knapp er en variabel type object */
+            /* = er en tilordningsoperator */
+            let xx = Math.floor(Math.random() * Math.max(0, window.innerWidth - knapp.offsetWidth)); 
+            /* xx er en variabel type heltall/integer (blir avrundet av .floor) */
+            /* .innerWidth er en egenskap for window, som sjekker bredde (og høyde) på nettleser-vindu */
             let yy = Math.floor(Math.random() * Math.max(0, window.innerHeight - knapp.offsetHeight));
             knapp.style.top = yy + "px";
             knapp.style.left = xx + "px";
-            knapp.getAnimations().forEach(animation => animation.cancel());
+            knapp.getAnimations().forEach(animation => animation.cancel()); 
+            /* .getAnimations() er en metode for css-manipulering */
+            /* .forEach() er en kontrollstruktur/løkkesetning, tilsvarer while() */
             knapp.animate(
                 [{ backgroundColor: "#fff9e8" }, { backgroundColor: "var(--acc)" }],
                 { duration: 750, fill: "forwards" }
